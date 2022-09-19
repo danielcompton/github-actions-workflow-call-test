@@ -1,0 +1,16 @@
+on:
+  workflow_call:
+  push:
+
+jobs:
+  test1:
+    uses: ./.github/workflows/test1.yml
+  test2:
+    uses: ./.github/workflows/test2.yml
+  test3:
+    uses: ./.github/workflows/test3.yml
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build
+        run: echo "Build"

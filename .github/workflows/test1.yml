@@ -1,0 +1,14 @@
+on:
+  workflow_call:
+  push:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.job }}-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  test1-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test
+        run: echo "Test 1"
